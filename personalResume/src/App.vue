@@ -1,53 +1,60 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <!-- <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div id="grid-container">
+    <!-- Header Section -->
+    <header>
+      <h1> Matias Robles Huber </h1>
+      <nav>
+        <ul>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#career">Career</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div> -->
-    <div class="page-title"> MatiasRHuber</div>
-    <div class="sub-header">This is a demonstrative website, intended to display relevant course work and personal projects</div>
-  </header>
+    <!-- Main Content Section -->
+    <main>
+      <!-- Projects Section -->
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+          <div v-for="project in projects" :key="project.id" class="project-card">
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            <a :href="project.link" target="_blank">View Project</a>
+          </div>
+        </div>
+      </section>
 
-  <main>
-    <p>List of relevant tabs</p>
-  </main>
+      <!-- Career Events Section -->
+      <section id="career">
+        <h2>Recent Career Events</h2>
+        <ul>
+          <li v-for="event in careerEvents" :key="event.id">
+            {{ event.date }} - {{ event.description }}
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+      <p>&copy; 2024 {{ name }}. All Rights Reserved.</p>
+    </footer>
+  </div>
 </template>
 
-<style>
-header .page-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--color-heading);
-    margin: 0;
-  }
-header .sub-header {
-  font-size: 1.5rem;
-    font-weight: 300;
-    color: var(--color-heading);
-    margin: 0;
+<script>
+
+</script>
+
+<style scoped>
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  color: #333;
 }
-/* @media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-} */
 </style>
